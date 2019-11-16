@@ -1,10 +1,14 @@
 pipeline {
    agent any
-
+ tools {
+        jdk "jdk1.8"
+        maven "maven"
+    }
    stages {
       stage('Hello') {
          steps {
-            echo 'Hello World'
+mvn clean package
+   echo 'Hello World'
          }
       }
       stage('Hello2') {
