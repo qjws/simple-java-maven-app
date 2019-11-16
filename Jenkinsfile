@@ -12,7 +12,6 @@ pipeline {
                         echo "M2_HOME = ${M2_HOME}"
                         mvn clean package
                     '''
-   echo 'Hello World'
          }
       }
       stage('Hello2') {
@@ -20,5 +19,11 @@ pipeline {
             echo 'Hello World'
          }
       }
+      
+   }
+    post {
+        always {
+            step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+        }
    }
 }
