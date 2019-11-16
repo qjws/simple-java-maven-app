@@ -7,7 +7,7 @@ pipeline {
    stages {
       stage('Hello') {
          steps {
-            sh ```
+            sh```
 mvn clean package
    ```
    echo 'Hello World'
